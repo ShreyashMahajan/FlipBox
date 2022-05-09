@@ -1,0 +1,51 @@
+
+
+/* css for project starts from here */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }  
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-bg-dark-color); 
+  }
+
+/* .app-container {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "navbar navbar"
+                         "sidebar mainbar";
+   grid-template-columns: 15rem 1fr;
+   grid-template-rows: 4rem 1fr;
+   background-color: var(--primary-bg-dark-color);
+   color: white;
+} */
+
+
+/* .mainbar {
+    grid-area: mainbar;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-areas: 'chipCont'
+                          'videoCardCont';
+    grid-template-rows: 4rem 1fr;                      
+} */
+
+/* .sub-container {
+    grid-area: chipCont;
+    border: 1px solid var(--secondary-bg-dark-color);
+    overflow-y: scroll;
+
+} */
+
+.videoCard-container {
+    grid-area: videoCardCont;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+

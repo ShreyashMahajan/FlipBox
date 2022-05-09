@@ -1,0 +1,34 @@
+
+.sidebar {
+    grid-area: sidebar;
+    border: 1px solid var(--secondary-bg-dark-color);
+    display: flex;
+}
+
+.menu-container {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-list {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid var(--primary-bg-dark-color);
+}
+
+.item-list:hover {
+   border: 1px solid var(--secondary-bg-dark-color);
+}
+
+.item-list__img {
+    height: 100%;
+}
+
+.item-list--title {
+    font-size: large;
+}
