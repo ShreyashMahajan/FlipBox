@@ -1,0 +1,17 @@
+
+
+.chip {
+    border: 1px solid var(--secondary-bg-dark-color);
+    width: fit-content;
+    padding: 8px;
+    margin: 8px;
+    font-size: large;
+    border-radius: 1rem;
+    background-color: var(--primary-bg-dark-color);
+    color: var(--white-color);
+    display: inline-block;
+}
+
+.chip:hover {
+    border: 1px solid var(--primary-bg-dark-color);
+}

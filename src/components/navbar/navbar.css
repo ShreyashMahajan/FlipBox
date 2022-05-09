@@ -1,0 +1,50 @@
+
+.navbar {
+    grid-area: navbar;
+   border: 1px solid var(--secondary-bg-dark-color);
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content:space-between ;
+   padding: 0 1rem;
+}
+
+.logo-container {
+    display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.logo__img {
+    height: 50px;
+}
+
+.logo--text {
+    font-size: xx-large;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.btn--search {
+    width: 4rem;
+    height: 2.5rem;
+}
+
+.input--search {
+    padding: 8px;
+    background-color: var(--primary-bg-dark-color);
+    border: 3px solid var(--secondary-bg-dark-color);
+    color: var(--secondary-bg-dark-color);
+    height: 2.5rem;
+}
+
+.btn--login {
+   padding: 0 1rem;
+   height: 2.5rem;
+   font-size: large;
+   background-color: var(--login-color);
+   color: var(--white-color);
+}

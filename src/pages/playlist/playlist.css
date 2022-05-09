@@ -1,0 +1,20 @@
+
+
+.sub-playlist-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-create {
+   background-color: var(--btn-create-color);
+   font-size: medium;
+   margin: 10px;
+   color: var(--white-color);
+   border-radius: 8px;
+   padding: 8px;
+}
+
+.category--title {
+    font-size: xx-large;
+    margin-left: 1rem;
+}
