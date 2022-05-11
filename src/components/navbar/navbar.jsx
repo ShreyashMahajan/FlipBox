@@ -1,12 +1,35 @@
 import '../navbar/navbar.css';
 import logo from '../../assets/images/logo.png';
+import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { useEffect } from 'react';
+
+export const Navbar = (props) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+    useEffect(() => {
+        if (isMobile) {
+            setIsMenuOpen(false)
+        } else {
+            setIsMenuOpen(true);
+        }
+
+    }, [isMobile]);
 
 
-export const Navbar = () => {
+
+    const toggleHandler = () => {
+        return setIsMenuOpen(!isMenuOpen);
+    }
+
+    props.func(isMenuOpen);
+
     return (
         <nav className="navbar">
             <div className='logo-container'>
-                <span className="material-symbols-outlined">
+                <span className="material-symbols-outlined" onClick={toggleHandler}>
                     menu
                 </span>
                 <img src={logo} alt="logo" className='logo__img' />
@@ -21,7 +44,7 @@ export const Navbar = () => {
                 </button>
             </div>
 
-            <button className='btn--login'>Login</button>
+
         </nav>
     )
 }

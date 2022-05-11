@@ -40,6 +40,9 @@ export const Sidebar = () => {
                     </span>
                     <span className='item-list--title'>Playlist</span>
                 </li>
+                <li className='item-list'>
+                    <button className='btn--login'>Login</button>
+                </li>
             </ul>
         </aside>
     )
