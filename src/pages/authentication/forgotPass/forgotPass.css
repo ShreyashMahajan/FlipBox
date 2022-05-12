@@ -1,0 +1,27 @@
+
+.forgotPass-cont {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+    grid-template-rows: 6rem auto auto ;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.confirm-user-data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    display: none;
+}
+
+.btn--change-pass {
+    display: none;
+}

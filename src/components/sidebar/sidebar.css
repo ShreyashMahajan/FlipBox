@@ -32,3 +32,11 @@
 .item-list--title {
     font-size: large;
 }
+
+.btn--login {
+    padding: 0 1rem;
+    height: 2.5rem;
+    font-size: large;
+    background-color: var(--login-color);
+    color: var(--white-color);
+ }

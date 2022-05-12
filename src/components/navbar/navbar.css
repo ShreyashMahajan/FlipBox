@@ -39,12 +39,6 @@
     border: 3px solid var(--secondary-bg-dark-color);
     color: var(--secondary-bg-dark-color);
     height: 2.5rem;
+    width: 6rem;
 }
 
-.btn--login {
-   padding: 0 1rem;
-   height: 2.5rem;
-   font-size: large;
-   background-color: var(--login-color);
-   color: var(--white-color);
-}
