@@ -1,30 +1,24 @@
 import '../navbar/navbar.css';
 import logo from '../../assets/images/logo.png';
-import { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { useEffect } from 'react';
+import { useVideoList } from '../../context/videoListContext/videoListContext';
+import { useCategory } from '../../context/categoryContext/categoryContext';
 
-export const Navbar = (props) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+export const Navbar = () => {
 
-    const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-
-    useEffect(() => {
-        if (isMobile) {
-            setIsMenuOpen(false)
-        } else {
-            setIsMenuOpen(true);
-        }
-
-    }, [isMobile]);
-
+    const { isMenuOpen, setIsMenuOpen } = useCategory();
 
 
     const toggleHandler = () => {
-        return setIsMenuOpen(!isMenuOpen);
+        if (isMenuOpen) {
+            return setIsMenuOpen(false)
+        } else {
+            return setIsMenuOpen(true);
+        }
     }
 
-    props.func(isMenuOpen);
+    console.log('menu open or not', isMenuOpen);
+
+    const { videoDispatch } = useVideoList();
 
     return (
         <nav className="navbar">
@@ -36,12 +30,7 @@ export const Navbar = (props) => {
                 <h1 className='logo--text'>FlipBox</h1>
             </div>
             <div className='search-box'>
-                <input type="search" className='input--search' placeholder='search here' />
-                <button className='btn--search'>
-                    <span className="material-symbols-outlined ">
-                        search
-                    </span>
-                </button>
+                <input type="search" className='input--search' placeholder='search here' onChange={(e) => videoDispatch({ type: 'SHOW_BY_SEARCH', payload: e.target.value })} />
             </div>
 
 

@@ -12,6 +12,10 @@
     flex-direction: column;
 }
 
+.hide-menu-container {
+    display: none;
+}
+
 .item-list {
     display: flex;
     align-items: center;

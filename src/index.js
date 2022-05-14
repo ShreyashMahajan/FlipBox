@@ -4,6 +4,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
+import { AuthProvider } from "./context/authContext/authContext";
+import { CategoryProvider } from "./context/categoryContext/categoryContext";
+import { VideoListProvider } from "./context/videoListContext/videoListContext";
 
 // Call make Server
 makeServer();
@@ -11,7 +14,13 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+   <AuthProvider>
+   <CategoryProvider>
+   <VideoListProvider>
+   <App />
+   </VideoListProvider>
+   </CategoryProvider>
+   </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

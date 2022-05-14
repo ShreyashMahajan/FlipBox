@@ -2,30 +2,24 @@ import { ChipComp } from '../../components/chipComp/chipComp';
 import { Navbar } from '../../components/navbar/navbar';
 import { Sidebar } from '../../components/sidebar/sidebar';
 import { VideoCard } from '../../components/videoCard/videoCard';
+import { useCategory } from '../../context/categoryContext/categoryContext';
+import { useVideoList } from '../../context/videoListContext/videoListContext';
 import '../home/home.css';
 
 export const Home = () => {
+    const { category, isMenuOpen } = useCategory();
+
+
     return (
-        <div className="app-container">
+        <div className={`app-container flex-center ${!isMenuOpen ? 'app-container_hideMenu' : ''} `} >
             <Navbar />
             <Sidebar />
             <main className='mainbar' >
-                <ul className='sub-container'>
+                <ul className='sub-container flex-start'>
                     <ChipComp />
-                    <ChipComp />
-                    <ChipComp />
-                    <ChipComp />
+
                 </ul>
-                <div className="videoCard-container">
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
-                    <VideoCard />
+                <div className="videoCard-container flex-center">
                     <VideoCard />
 
                 </div>

@@ -1,9 +1,11 @@
+import { useCategory } from '../../context/categoryContext/categoryContext';
 import '../sidebar/sidebar.css';
 
 export const Sidebar = () => {
+    const { isMenuOpen } = useCategory();
     return (
         <aside className="sidebar">
-            <ul className='menu-container'>
+            <ul className={`menu-container ${!isMenuOpen ? 'hide-menu-container' : ''}`}>
                 <li className='item-list'>
                     <span className="material-symbols-outlined item-list__img" >
                         home

@@ -66,6 +66,13 @@ border-spacing: 0;
  color: white;
 }
 
+.app-container_hideMenu {
+  grid-template-areas:
+        "navbar"
+        "mainbar";
+    grid-template-columns: 1fr;
+}
+
 .mainbar {
   grid-area: mainbar;
   overflow-y: scroll;
@@ -83,5 +90,9 @@ border-spacing: 0;
   align-items: center;
   white-space: nowrap ;
   justify-content: space-between;
+}
+
+.flex-start {
+  justify-content: flex-start;
 }
 

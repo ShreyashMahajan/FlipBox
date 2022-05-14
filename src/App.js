@@ -10,9 +10,9 @@ import { WatchLater } from "./pages/watchLater/watchLater";
 function App() {
   return (
     <div className="App">
-     {/* <Home /> */}
+     <Home />
      {/* <WatchLater /> */}
-    <History />
+    {/* <History /> */}
     {/* <Playlist /> */}
     {/* <Login /> */}
     {/* <SignUp /> */}

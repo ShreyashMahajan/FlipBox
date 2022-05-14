@@ -3,20 +3,22 @@ import '../login/login.css'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar } from '../../../components/navbar/navbar';
+import { useAuth } from '../../../context/authContext/authContext';
 
 
 export const Login = () => {
   const [user, setUser] = useState({ email: 'admin@gmail.com', password: 'admin' });
-
+  const { login } = useAuth();
+  console.log(login)
 
   const inputChangeHandler = (e) => {
-    return true;
+    setUser({ ...user, [e.target.name]: e.target.value });
   }
 
   const submit = e => {
     e.preventDefault();
     console.log('from login page', user);
-    return true;
+    login(user);
   }
   return (
 
