@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Navbar } from "../../../components/navbar/navbar"
+import { useAuth } from "../../../context/authContext/authContext";
 import '../signUp/signUp.css';
 
 
 export const SignUp = () => {
   const [user, setUser] = useState({});
+  const { signUp } = useAuth();
 
 
   const inputChangeHandler = (e) => {
@@ -13,8 +15,6 @@ export const SignUp = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log('signup submit')
-    console.log('from signup', user);
     signUp(user);
   }
   return (
