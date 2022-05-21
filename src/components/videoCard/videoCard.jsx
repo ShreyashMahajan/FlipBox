@@ -1,8 +1,7 @@
 import '../videoCard/videoCard.css';
-import { useVideoList } from '../../context/videoListContext/videoListContext';
 import { useState } from 'react';
 import { useLikeHistoryWatchlater } from '../../context/likeHistoryWatchlaterContext/likeHistoryWatchlaterContext';
-import ReactPlayer from 'react-player';
+
 
 export const VideoCard = (props) => {
 
@@ -19,7 +18,6 @@ export const VideoCard = (props) => {
             return true;
         }
     }
-
 
     let likeVideoPresent = isVideoPresent(likeList, video);
     let watchlaterPresent = isVideoPresent(watchlaterList, video);
@@ -64,16 +62,5 @@ export const VideoCard = (props) => {
                 </div>
             </div>
         </div>
-
-
-
     )
 }
-
-
-// addToHistory(video)
-
-
-
-
-
