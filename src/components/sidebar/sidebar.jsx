@@ -1,8 +1,11 @@
+import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../context/authContext/authContext';
 import { useCategory } from '../../context/categoryContext/categoryContext';
 import '../sidebar/sidebar.css';
 
 export const Sidebar = () => {
     const { isMenuOpen } = useCategory();
+    const { isUserLoggedIn, logout } = useAuth();
     return (
         <aside className="sidebar">
             <ul className={`menu-container ${!isMenuOpen ? 'hide-menu-container' : ''}`}>
@@ -10,40 +13,51 @@ export const Sidebar = () => {
                     <span className="material-symbols-outlined item-list__img" >
                         home
                     </span>
-                    <span className='item-list--title'>Home</span>
+                    <NavLink to="/" className='text--link' >
+                        <span className='item-list--title'>Home</span>
+                    </NavLink>
                 </li>
-                <li className='item-list'>
-                    <span className="material-symbols-outlined item-list__img" >
-                        play_arrow
-                    </span>
-                    <span className='item-list--title'>Video List</span>
-                </li>
-                <li className='item-list'>
+                <li className='item-list' >
                     <span className="material-symbols-outlined item-list__img" >
                         thumb_up
                     </span>
-                    <span className='item-list--title'>Like/dislike</span>
+                    <NavLink to='/like' className='text--link'>
+                        <span className='item-list--title'>Liked</span>
+                    </NavLink>
                 </li>
                 <li className='item-list'>
                     <span className="material-symbols-outlined item-list__img" >
                         timer
                     </span>
-                    <span className='item-list--title'>Watch later</span>
+                    <NavLink to="/watchlater" className='text--link'>
+                        <span className='item-list--title'>Watch later</span>
+                    </NavLink>
                 </li>
                 <li className='item-list'>
                     <span className="material-symbols-outlined item-list__img" >
                         history
                     </span>
-                    <span className='item-list--title'>History</span>
+                    <NavLink to="/history" className='text--link'>
+                        <span className='item-list--title'>History</span>
+                    </NavLink>
                 </li>
                 <li className='item-list'>
                     <span className="material-symbols-outlined item-list__img" >
                         playlist_add
                     </span>
-                    <span className='item-list--title'>Playlist</span>
+                    <NavLink to="/playlist" className='text--link'>
+                        <span className='item-list--title'>Playlist</span>
+                    </NavLink>
                 </li>
                 <li className='item-list'>
-                    <button className='btn--login'>Login</button>
+                    {!isUserLoggedIn && <NavLink to='/login'>
+                        <button className='btn--login'>Login</button>
+                    </NavLink>}
+                    {isUserLoggedIn && <NavLink to='/login'>
+                        <button className='btn--login' onClick={() => {
+                            logout();
+                        }}>Logout</button>
+                    </NavLink>}
                 </li>
             </ul>
         </aside>
