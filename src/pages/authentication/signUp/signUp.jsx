@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Navbar } from "../../../components/navbar/navbar"
 import { useAuth } from "../../../context/authContext/authContext";
 import '../signUp/signUp.css';

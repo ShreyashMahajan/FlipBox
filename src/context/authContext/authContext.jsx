@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useReducer } from "react";
 import { authReducer } from "../../reducers/authReducer/authReducer";
 import { useContext } from "react";
@@ -12,11 +12,12 @@ const AuthProvider = ({ children }) => {
     const [authState, authDispatch] = useReducer(authReducer, { isUserLoggedIn: false, token: null })
     const { isUserLoggedIn } = authState;
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log('location from auth', location);
 
     const login = async ({ email, password }) => {
         try {
             const { data } = await axios.post('/api/auth/login', { email, password });
-            console.log('from context', data);
 
             localStorage.setItem('user', JSON.stringify(data));
             authDispatch({ type: 'LOGIN', payload: data });
@@ -53,6 +54,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('user'));
+        data && authDispatch({ type: 'LOGIN', payload: data });
 
     }, [])
 

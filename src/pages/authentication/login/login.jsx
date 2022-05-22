@@ -1,15 +1,16 @@
 import '../signUp/signUp.css'
 import '../login/login.css'
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Navbar } from '../../../components/navbar/navbar';
 import { useAuth } from '../../../context/authContext/authContext';
 
 
 export const Login = () => {
   const [user, setUser] = useState({ email: 'admin@gmail.com', password: 'admin' });
-  const { login } = useAuth();
-  console.log(login)
+  const { login, logout, isUserLoggedIn } = useAuth();
+
+  console.log('location', location);
 
   const inputChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -17,7 +18,6 @@ export const Login = () => {
 
   const submit = e => {
     e.preventDefault();
-    console.log('from login page', user);
     login(user);
   }
   return (
@@ -44,7 +44,7 @@ export const Login = () => {
                   Password? </span> </NavLink>
               </div>
               <button className="btn-user--login" type="submit">Login</button>
-              <NavLink to="/" className='item--link'>
+              <NavLink to="/signup" className='item--link'>
                 <p className="user-new-account">Create New Account</p>
               </NavLink>
             </form>

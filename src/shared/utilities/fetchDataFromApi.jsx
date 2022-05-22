@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 
 async function fetchDataFromApi({ url, method, body, propertyName }) {
     const user = JSON.parse(localStorage.getItem('user'));

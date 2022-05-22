@@ -7,6 +7,8 @@ import { makeServer } from "./server";
 import { AuthProvider } from "./context/authContext/authContext";
 import { CategoryProvider } from "./context/categoryContext/categoryContext";
 import { VideoListProvider } from "./context/videoListContext/videoListContext";
+import { LikeHistoryWatchProvider } from "./context/likeHistoryWatchlaterContext/likeHistoryWatchlaterContext";
+
 
 // Call make Server
 makeServer();
@@ -17,7 +19,9 @@ ReactDOM.render(
    <AuthProvider>
    <CategoryProvider>
    <VideoListProvider>
-   <App />
+   <LikeHistoryWatchProvider>
+     <App />
+   </LikeHistoryWatchProvider>
    </VideoListProvider>
    </CategoryProvider>
    </AuthProvider>

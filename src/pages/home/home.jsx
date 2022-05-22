@@ -7,8 +7,8 @@ import { useVideoList } from '../../context/videoListContext/videoListContext';
 import '../home/home.css';
 
 export const Home = () => {
-    const { category, isMenuOpen } = useCategory();
-
+    const { isMenuOpen } = useCategory();
+    const { filteredVideoList } = useVideoList();
 
     return (
         <div className={`app-container flex-center ${!isMenuOpen ? 'app-container_hideMenu' : ''} `} >
@@ -20,8 +20,11 @@ export const Home = () => {
 
                 </ul>
                 <div className="videoCard-container flex-center">
-                    <VideoCard />
-
+                    {
+                        filteredVideoList.map(videoItem => {
+                            return <VideoCard video={videoItem} key={videoItem._id} />
+                        })
+                    }
                 </div>
             </main>
         </div>
