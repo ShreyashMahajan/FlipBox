@@ -10,7 +10,6 @@ export const Login = () => {
   const [user, setUser] = useState({ email: 'admin@gmail.com', password: 'admin' });
   const { login, logout, isUserLoggedIn } = useAuth();
 
-  console.log('location', location);
 
   const inputChangeHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
