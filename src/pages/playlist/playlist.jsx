@@ -2,10 +2,15 @@ import { Navbar } from '../../components/navbar/navbar';
 import { PlaylistTile } from '../../components/playlistTile/playlistTile';
 import { Sidebar } from '../../components/sidebar/sidebar';
 import { useCategory } from '../../context/categoryContext/categoryContext';
+import { usePlaylist } from '../../context/playlistContext/playlistContext';
 import '../playlist/playlist.css';
 
 export const Playlist = () => {
     const { isMenuOpen } = useCategory();
+    const { playlistState, addPlaylist } = usePlaylist();
+    const { playlist } = playlistState;
+
+
     return (
         <div className={`app-container flex-center ${!isMenuOpen ? 'app-container_hideMenu' : ''} `} >
             <Navbar />
@@ -13,13 +18,14 @@ export const Playlist = () => {
             <main className='mainbar' >
                 <div className='sub-container sub-playlist-container'>
                     <h1 className='category--title'>Playlist</h1>
-                    <button className='btn-create'>Create New Playlist</button>
+                    {/* <button className='btn-create'>Create New Playlist</button> This will be used later, so commenting now */}
                 </div>
                 <div className="videoCard-container flex-center">
-                    <PlaylistTile />
-                    <PlaylistTile />
-                    <PlaylistTile />
-                    <PlaylistTile />
+                    <div>
+                        {
+                            Object.keys(playlist).length !== 0 && playlist.map(playlistItem => <PlaylistTile playlistTile={playlistItem} keys={playlistItem._id} />)
+                        }
+                    </div>
                 </div>
             </main>
         </div>

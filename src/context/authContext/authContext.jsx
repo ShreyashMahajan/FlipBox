@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
     const { isUserLoggedIn } = authState;
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('location from auth', location);
 
     const login = async ({ email, password }) => {
         try {

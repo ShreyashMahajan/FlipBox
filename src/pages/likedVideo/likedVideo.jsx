@@ -20,7 +20,7 @@ export const LikedPage = () => {
                 <div className="videoCard-container flex-center">
                     {
                         likeList.map(videoItem => {
-                            return <LikedCard video={videoItem} />
+                            return <LikedCard video={videoItem} key={videoItem._id} />
                         })
                     }
                 </div>

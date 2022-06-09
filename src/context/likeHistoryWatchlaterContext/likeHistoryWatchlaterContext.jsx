@@ -35,11 +35,9 @@ const LikeHistoryWatchProvider = ({ children }) => {
         }
     }, []);
 
-    console.log('history list', likeHistoryState.historyList)
 
     const addToLikedVideo = async (video) => {
         const { data } = await addToLikedVideoService(video);
-        console.log('data from like context', data);
         likeHistoryDispatch({ type: 'UPDATE_LIKED_VIDEO', payload: data })
     }
 

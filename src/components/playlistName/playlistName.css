@@ -1,0 +1,19 @@
+
+
+.playlistName-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid var(--secondary-bg-dark-color);
+    border-bottom: 0.5px solid var(--secondary-bg-dark-color);
+}
+
+.input-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.playlistName--title {
+    font-size: larger;
+    
+}

@@ -16,7 +16,6 @@ export const Navbar = () => {
         }
     }
 
-    console.log('menu open or not', isMenuOpen);
 
     const { videoDispatch } = useVideoList();
 

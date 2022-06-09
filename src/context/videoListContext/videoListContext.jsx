@@ -22,7 +22,6 @@ const VideoListProvider = ({ children }) => {
         (async () => {
             try {
                 const { data } = await axios.get('/api/videos');
-                console.log('from useEffect', data);
                 setVideoList([...data.videos]);
             }
             catch (error) {
@@ -33,7 +32,6 @@ const VideoListProvider = ({ children }) => {
 
     const filteredVideoList = getFilterBySearch(videoState, getFilterByCategory(videoState, videoList));
 
-    console.log('filtered videos', filteredVideoList);
 
     return (
         <VideoListContext.Provider value={{ filteredVideoList, videoDispatch }}>
