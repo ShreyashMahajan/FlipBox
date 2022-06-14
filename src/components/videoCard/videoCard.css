@@ -8,14 +8,13 @@
     border: 1px solid var(--secondary-bg-dark-color);
 }
 
-.card__img-container {
+.card__img-container-videoCard {
     position: relative;
 }
 
-.card__img {
+.video__img {
     width: 100%;
 }
-
 .video-time-count {
     position: absolute;
     color: yellow;
@@ -126,4 +125,8 @@
     font-weight: bold;
     background-color: var(--btn-create-color); 
     color: var(--white-color);
+}
+
+.list-style {
+    list-style-type: none;
 }

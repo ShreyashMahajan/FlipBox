@@ -9,10 +9,9 @@ export const PlaylistTile = (props) => {
     const { deletePlaylist } = usePlaylist();
 
     return (
-        <div className='playlist-template'  >
+        <div className='playlist-template' key={playlistTile._id}  >
             <div className='playlist-content'>
                 <h1 className='playlist--title'>{playlistTile.title}</h1>
-                {/* <p className='playlist-video-count'> {playlistData.videos.length} videos</p> */}
                 <div className='playlist-video-container'>
                     {
                         playlistTile.videos.map(playlistVideo => <PlaylistCard playlistVideo={playlistVideo} playlistTile={playlistTile} />)

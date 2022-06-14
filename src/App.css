@@ -7,6 +7,15 @@
   --white-color: white;
   --btn-create-color: rgb(186, 36, 36) ;
   --modal-body-bg-color: #303030;
+  --text-color: white;
+
+  /* --primary-bg-dark-color: white ;
+  --secondary-bg-dark-color: black ;
+  --login-color: rgb(5, 5, 233);
+  --white-color: white;
+  --btn-create-color: rgb(186, 36, 36) ;
+  --modal-body-bg-color: #303030;
+  --text-color: black; */
 }
 
 html, body, div, span, applet, object, iframe,
@@ -30,6 +39,7 @@ font: inherit;
 vertical-align: baseline;
   box-sizing: border-box;
   text-align: center;
+  box-sizing: border-box;
  
 }
 /* HTML5 display-role reset for older browsers */
@@ -39,6 +49,7 @@ display: block;
 }
 body {
 line-height: 1;
+box-sizing: border-box;
 }
 ol, ul {
 list-style: none;
@@ -64,7 +75,7 @@ border-spacing: 0;
  grid-template-columns: 15rem 1fr;
  grid-template-rows: 4rem 1fr;
  background-color: var(--primary-bg-dark-color);
- color: white;
+ color: var(--text-color);
 }
 
 .app-container_hideMenu {

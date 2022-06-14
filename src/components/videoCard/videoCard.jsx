@@ -5,6 +5,7 @@ import { useAuth } from '../../context/authContext/authContext';
 import { FaTimes } from 'react-icons/fa';
 import { PlaylistName } from '../playlistName/playlistName';
 import { usePlaylist } from '../../context/playlistContext/playlistContext';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -21,12 +22,17 @@ export const VideoCard = (props) => {
     const { playlist } = playlistState;
     const [playlistInput, setPlaylistInput] = useState('');
 
+
     const isVideoPresent = (videoList, video) => {
         if (videoList.find(videoItem => videoItem._id === video._id) === undefined) {
             return false;
         } else {
             return true;
         }
+    }
+
+    const hidePlaylistByProps = () => {
+        setShowPlaylist(false);
     }
 
     let likeVideoPresent = isVideoPresent(likeList, video);
@@ -36,15 +42,14 @@ export const VideoCard = (props) => {
     return (
         <>
             <div className="card-container" key={video._id} >
-                <div className='card__img-container' >
-                    <iframe src={`https://www.youtube.com/embed/${video._id}`} className='card__iframe'
-                        allow='autoplay; encrypted-media'
-                        allowFullScreen
-                        title='video' />
+                <div className='card__img-container-videoCard' >
+                    <NavLink to={`video/${video._id}`} >
+                        <img src={video.thumbnail} alt={video.thumbnail} className='video__img' onClick={() => !isHistoryPresent && addToHistory(video)} />
+                    </NavLink>
 
                     <span className='video-time-count'>{video.timeDuration}</span>
                 </div>
-                <div className="card-content" onClick={() => { !isHistoryPresent && isUserLoggedIn && addToHistory(video) }} >
+                <div className="card-content"  >
                     <div className='title-container'>
                         <h1 className="card--title">{video.title}</h1>
                         {
@@ -86,10 +91,11 @@ export const VideoCard = (props) => {
                         <h1 className='playlist--title'> Add to </h1>
                         <FaTimes className='delete--icon' onClick={() => setShowPlaylist(!showPlaylist)} />
                     </div>
-                    <li>
+                    <li className='list-style'>
+
                         {
                             (playlist.length !== 0 && playlist !== undefined) && playlist.map(playlistName => {
-                                return <PlaylistName key={playlistName._id} playlistName={playlistName} video={video} />
+                                return <PlaylistName key={playlistName._id} playlistName={playlistName} video={video} hidePlaylist={hidePlaylistByProps} />
                             })
                         }
 
