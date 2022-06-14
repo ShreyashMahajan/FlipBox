@@ -20,7 +20,11 @@ function App() {
      <ToastContainer position="bottom-center" autoClose={2000} />
     <Routes>
       <Route exact path ='/' element={ <Home />} />
-      <Route path='/video/:id' element={<SingleVideoPage />} />
+      <Route path="/video/:id" element={
+        <RequireAuth>
+        <SingleVideoPage />
+        </RequireAuth>
+      } />
       <Route path="/history" element={
         <RequireAuth>
         <History />

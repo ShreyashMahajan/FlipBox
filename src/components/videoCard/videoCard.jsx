@@ -44,7 +44,7 @@ export const VideoCard = (props) => {
             <div className="card-container" key={video._id} >
                 <div className='card__img-container-videoCard' >
                     <NavLink to={`video/${video._id}`} >
-                        <img src={video.thumbnail} alt={video.thumbnail} className='video__img' onClick={() => !isHistoryPresent && addToHistory(video)} />
+                        <img src={video.thumbnail} alt={video.thumbnail} className='video__img' onClick={() => !isHistoryPresent && isUserLoggedIn && addToHistory(video)} />
                     </NavLink>
 
                     <span className='video-time-count'>{video.timeDuration}</span>
