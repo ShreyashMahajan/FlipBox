@@ -11,6 +11,7 @@ import { LikedPage } from "./pages/likedVideo/likedVideo";
 import { RequireAuth } from "./components/requireAuth/requireAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SingleVideoPage } from "./pages/singleVideopage/singleVideopage";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
      <ToastContainer position="bottom-center" autoClose={2000} />
     <Routes>
       <Route exact path ='/' element={ <Home />} />
+      <Route path="/video/:id" element={
+        <RequireAuth>
+        <SingleVideoPage />
+        </RequireAuth>
+      } />
       <Route path="/history" element={
         <RequireAuth>
         <History />
@@ -42,7 +48,9 @@ function App() {
         <LikedPage />
       </RequireAuth>
       } />
+    
     </Routes>
+    {/* <SingleVideoPage /> */}
     </div>
   );
 }

@@ -12,13 +12,12 @@ export const Playlist = () => {
 
 
     return (
-        <div className={`app-container flex-center ${!isMenuOpen ? 'app-container_hideMenu' : ''} `} >
+        <div className={`app-container flex-center ${!isMenuOpen ? 'app-container_hideMenu' : ''} `} key={playlist._id} >
             <Navbar />
             <Sidebar />
             <main className='mainbar' >
                 <div className='sub-container sub-playlist-container'>
                     <h1 className='category--title'>Playlist</h1>
-                    {/* <button className='btn-create'>Create New Playlist</button> This will be used later, so commenting now */}
                 </div>
                 <div className="videoCard-container flex-center">
                     <div>

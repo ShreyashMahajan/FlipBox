@@ -53,7 +53,7 @@ const addVideoToPlaylistService = async (id, video) => {
 
 
 const deleteVideoFromPlaylistService = async (playlistId, videoId) => {
-    console.log('id from service', playlistId, videoId)
+
     const response = await fetchDataFromApi({
         url: `/api/user/playlists/${playlistId}/${videoId}`,
         method: 'delete',

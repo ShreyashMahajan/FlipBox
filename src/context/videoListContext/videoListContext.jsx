@@ -34,7 +34,7 @@ const VideoListProvider = ({ children }) => {
 
 
     return (
-        <VideoListContext.Provider value={{ filteredVideoList, videoDispatch }}>
+        <VideoListContext.Provider value={{ filteredVideoList, videoList, videoDispatch }}>
             {children}
         </VideoListContext.Provider>
     )
